@@ -39,16 +39,6 @@ public class Page {
     }
 
 
-    @Step("-Scroll down")
-    public void scrollDownByPixel(int count) {
-        for (int x = 0; x < count; x++) {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollBy(0,450)", "");
-        }
-
-    }
-
-
     public WebElement findElement(By element) {
         return driver.findElement(element);
     }
