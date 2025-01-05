@@ -29,10 +29,6 @@ public class Page {
         System.out.println("Navigating to " + url);
     }
 
-    public void visibilityWait(By element) {
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-    }
 
     protected void clickElement(By element) {
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
@@ -52,18 +48,6 @@ public class Page {
 
     public String getElementText(By element) {
         return driver.findElement(element).getText();
-    }
-
-
-    public boolean checkElementIsDisplayed(By element) {
-        try {
-            visibilityWait(element);
-            driver.findElement(element).isDisplayed();
-        } catch (Exception e) {
-            System.out.println("Couldn't find element" + element);
-            return false;
-        }
-        return true;
     }
 
 

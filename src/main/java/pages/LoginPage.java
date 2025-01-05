@@ -4,15 +4,17 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends Page{
+public class LoginPage extends Page {
 
-    public LoginPage(WebDriver driver){super(driver);}
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
 
-    private By loginIcon = By.id("nav-link-accountList");
-    private By phoneField = By.id("ap_email");
-    private By continueButton = By.id("continue");
-    private By passwordField = By.id("ap_password");
-    private By signInButton = By.id("signInSubmit");
+    private final By loginIcon = By.id("nav-link-accountList");
+    private final By phoneField = By.id("ap_email");
+    private final By continueButton = By.id("continue");
+    private final By passwordField = By.id("ap_password");
+    private final By signInButton = By.id("signInSubmit");
 
 
     @Step("-click login button")
@@ -46,9 +48,8 @@ public class LoginPage extends Page{
     }
 
     @Step("-click sign in button")
-    public LoginPage clickSignInButton() {
+    public void clickSignInButton() {
         clickElement(signInButton);
-        return this;
     }
 
 

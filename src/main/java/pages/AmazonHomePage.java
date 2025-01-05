@@ -34,8 +34,7 @@ public class AmazonHomePage extends Page {
     }
 
     @Step("-click all video games")
-    public AmazonHomePage clickAllVideoGames() {
+    public void clickAllVideoGames() {
         clickElementUsingJS(allVideoGamesOption);
-        return this;
     }
 }

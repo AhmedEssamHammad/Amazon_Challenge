@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 
 import java.text.ParseException;
 
-public class VideoGamesPage extends Page{
-    public VideoGamesPage(WebDriver driver){super(driver);}
+public class VideoGamesPage extends Page {
+    public VideoGamesPage(WebDriver driver) {
+        super(driver);
+    }
 
 
     private final By freeShippingCheckBox = By.xpath("//label[@for='apb-browse-refinements-checkbox_0']//i[@class='a-icon a-icon-checkbox']");
@@ -38,18 +40,17 @@ public class VideoGamesPage extends Page{
     }
 
     @Step("-click new condition filter")
-    public VideoGamesPage clickCartIcon() {
+    public void clickCartIcon() {
         scrollToElementThenClick(cartIcon);
-        return this;
     }
 
     @Step("-Add all items less than 15k to cart")
     public VideoGamesPage addAllItemsLessThan15KToCart() throws ParseException {
 
-        for(int i = 1; i < 8; i++){
-            By itemPrice = By.xpath("(//span[@class='a-price-whole'])["+i+"]");
+        for (int i = 1; i < 8; i++) {
+            By itemPrice = By.xpath("(//span[@class='a-price-whole'])[" + i + "]");
             scrollToElement(itemPrice);
-            if(getPriceAsInteger(itemPrice) < 15000){
+            if (getPriceAsInteger(itemPrice) < 15000) {
                 clickElement(itemPrice);
                 clickElement(addToCartButton);
                 driver.navigate().back();
@@ -57,7 +58,7 @@ public class VideoGamesPage extends Page{
                 totalPrice = totalPrice + getPriceAsInteger(itemPrice);
             }
         }
-        if (numberOfCartItems < 1){
+        if (numberOfCartItems < 1) {
             scrollToElementThenClick(nextResultsPageArrow);
             addAllItemsLessThan15KToCart();
         }
@@ -72,13 +73,4 @@ public class VideoGamesPage extends Page{
         return totalPrice;
     }
 
-
-    //div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//span[@class='a-price-whole']
-
-   //div[class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_'+1+'] span[class='a-price-whole']
-    //div[@class='a-section a-spacing-micro']//span[@class='a-price-whole']
-   // div[class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1'] a[class='a-link-normal s-line-clamp-2 s-link-style a-text-normal']
-      //      (//span[contains(text(),'No featured offers available')])[1]
-
-    //div[@class='s-widget-container s-spacing-small s-widget-container-height-small celwidget slot=MAIN template=SEARCH_RESULTS widgetId=search-results_1']//span[@class='a-price-whole']
 }

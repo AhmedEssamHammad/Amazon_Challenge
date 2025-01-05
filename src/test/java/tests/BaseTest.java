@@ -26,19 +26,8 @@ public class BaseTest {
     }
 
 
-   /* @AfterClass()
+    @AfterClass()
     void afterClass() {
         driver.quit();
-    }*/
-
-
-    @Step("check that value : {0} equal to : {1} ")
-    boolean doAssertEqual(Object Actual, Object Expected, String message) {
-        softAssert.assertEquals(Actual, Expected, message);
-        if (String.valueOf(Expected) != String.valueOf(Actual)) {
-            return false;
-        }
-
-        return true;
     }
 }

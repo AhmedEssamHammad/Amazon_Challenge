@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.text.ParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CartPage extends Page {
 
@@ -48,9 +46,8 @@ public class CartPage extends Page {
     }
 
     @Step("-choose value option")
-    public CartPage chooseValueOption() {
+    public void chooseValueOption() {
         scrollToElementThenClick(valueOption);
-        return this;
     }
 
     @Step("-get Cart order total")
