@@ -47,7 +47,7 @@ public class CartPage extends Page {
 
     @Step("-choose value option")
     public void chooseValueOption() {
-        scrollToElementThenClick(valueOption);
+        scrollToElementThenClickUsingJS(valueOption);
     }
 
     @Step("-get Cart order total")

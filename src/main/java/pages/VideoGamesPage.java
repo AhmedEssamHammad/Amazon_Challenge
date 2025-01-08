@@ -19,7 +19,7 @@ public class VideoGamesPage extends Page {
     private final By cartIcon = By.id("nav-cart-count");
     private final By nextResultsPageArrow = By.xpath("//a[text()='Next']");
     private int numberOfCartItems = 0;
-    private int totalPrice = 0;
+    private static int  totalPrice = 0;
 
     @Step("-sort price from high to low")
     public VideoGamesPage sortPriceFromHighToLow() {
@@ -47,7 +47,7 @@ public class VideoGamesPage extends Page {
     @Step("-Add all items less than 15k to cart")
     public VideoGamesPage addAllItemsLessThan15KToCart() throws ParseException {
 
-        for (int i = 1; i < 8; i++) {
+        for (int i = 1; i < 10; i++) {
             By itemPrice = By.xpath("(//span[@class='a-price-whole'])[" + i + "]");
             scrollToElement(itemPrice);
             if (getPriceAsInteger(itemPrice) < 15000) {
